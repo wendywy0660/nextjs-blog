@@ -1,6 +1,12 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import styled from '@emotion/styled'
+
 import styles from '../styles/Home.module.css'
+
+const Container = styled.div``;
+const Main = styled.main``;
+const BlogTitle = styled.h1`color: red`;
 
 export default function Home() {
   const title: string = 'Nextjs blog'
@@ -12,11 +18,11 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
+      <Main className={styles.main}>
+        <BlogTitle className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-      </main>
+        </BlogTitle>
+      </Main>
     </div >
   )
 }
