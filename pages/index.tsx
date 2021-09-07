@@ -73,7 +73,7 @@ export default function Home({ posts }: InferGetStaticPropsType<typeof getStatic
   )
 }
 
-type Post = {
+export type Post = {
   userId: number;
   id: number;
   title: string;
