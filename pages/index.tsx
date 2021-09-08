@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link'
 import styled from '@emotion/styled'
 
 import styles from '../styles/Home.module.css'
@@ -61,11 +62,14 @@ export default function Home({ posts }: InferGetStaticPropsType<typeof getStatic
         <BlogTitle className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </BlogTitle>
+        <Link href="/about">About us</Link>
         <List>
           {posts.map((post) => (
-            <ListItem key={post.id}>
-              <PostTitle>{post.title}</PostTitle>
-            </ListItem>
+            <Link key={post.id} passHref href="/posts/[id]" as={`/posts/${post.id}`}>
+              <ListItem >
+                <PostTitle>{post.title}</PostTitle>
+              </ListItem>
+            </Link>
           ))}
         </List>
       </Main>

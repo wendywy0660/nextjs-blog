@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { Article } from "@components/Article";
 import { GetStaticPaths, GetStaticPropsContext, InferGetStaticPropsType } from "next";
 import { useRouter } from "next/router"
@@ -6,10 +7,15 @@ import type { Post } from '../index'
 export default function BlogPost({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
     // const router = useRouter();
     // const { title } = router.query;
+    const { title, body } = post
     return (
         <Article>
-            <h1>{post?.title}</h1>
-            <p>{post?.body}</p>
+            <Head>
+                <title>{title}</title>
+                <meta property='og:title' content={title} />
+            </Head>
+            <h1>{title}</h1>
+            <p>{body}</p>
         </Article>
     )
 }
